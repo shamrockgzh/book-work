@@ -66,6 +66,7 @@ def sign_up_api():
                 'status': 'success',
                 'data': {
                     'token': str(user.id),
+                    'name': user.name,
                 },
             }
 

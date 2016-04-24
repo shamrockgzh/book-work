@@ -23,7 +23,7 @@ def books_api():
 
 @app.route('/api/books/<int:book_id>/', methods=['GET', 'PUT', 'DELETE'])
 @auth_required
-def book_api():
+def book_api(book_id):
     if request.method == 'GET':
         pass
 

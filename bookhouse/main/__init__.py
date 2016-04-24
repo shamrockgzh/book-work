@@ -18,4 +18,8 @@ def create_app_main():
     import bookhouse.models.user
     import bookhouse.models.book
 
+    import bookhouse.main.views
+    import bookhouse.main.views.user
+    import bookhouse.main.views.book
+
     return app
