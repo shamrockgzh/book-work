@@ -23,9 +23,12 @@ API_FAIL_CODES['SIGN_UP'] = {
 def sign_up_api():
     if request.method == 'POST':
         try:
+
             request_data = request.json
+            #数据为空
             if request_data is None:
                 raise ViewProcessJump(code='ILLEGAL_USER_INPUT')
+            #验证器
             validator = Validator({
                 'name': {
                     'required': True,
@@ -43,6 +46,7 @@ def sign_up_api():
                     'allowed': GENDER_OPTIONS.values(),
                 },
             })
+            #数据不符合验证器格式
             if not validator.validate(request_data):
                 raise ViewProcessJump(code='ILLEGAL_USER_INPUT')
 
@@ -51,6 +55,7 @@ def sign_up_api():
             gender = validator.document.get('gender')
 
             user_existed = User.query.filter(db.text('name = :name')).params(name=name).first()
+
             if user_existed:
                 raise ViewProcessJump(code='USER_NAME_EXISTED')
 
@@ -71,7 +76,7 @@ def sign_up_api():
             }
 
             return jsonify(**resp)
-
+        #错误
         except ViewProcessJump as e:
             if e.code in (
                     'ILLEGAL_USER_INPUT',

@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 
 
+from flask_script import Manager
+
 from bookhouse.main import create_app_main
 
 app = create_app_main()
-
-
-from flask_script import Manager
 
 
 manager = Manager(app)

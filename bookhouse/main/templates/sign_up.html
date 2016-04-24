@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sign_up</title>
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none !important;
+        }
+    </style>
+</head>
+
+<body ng-app="bookhouse.main.app.signUp" ng-controller="signUpCtrl">
+<div>
+    用户名:<input type="text" ng-model="user_name" placeholder="用户名"><br>
+    密 码:<input type="password" ng-model="user_password" placeholder="密码"><br>
+    <input ng-click="Mysubmit()" type="submit" value="注册">
+</div>
+
+<script type="text/javascript" src="{{ url_for('static', filename='src/assets/lib/angular/angular.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='src/assets/lib/angular-cookie/angular-cookie.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='src/assets/js/sign_up.js' )}}"> </script>
+</body>
+</html>
